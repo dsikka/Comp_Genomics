@@ -1,15 +1,24 @@
 # Comp_Genomics
 Repository for the final Computational Genomics project, analyzing gliomas.
 
-Please include in your report a pointer to a GitHub repo or equivalent (SourceForge etc.)  that includes the project software files:
+The data for this project can be found on the Chinese Glioma Genome Atlas (http://www.cgga.org.cn/download.jsp - Part C). It consists of a matrix of RNA-seq gene expression counts for 24000+ genes and a separate matrix of clinical information of each of the 325 patients/samples. 1/10th of the expression data (preprocessed) is included in this repository.
 
-- All source code/scripts
-- Sample, small (see below) input and output files
-- If your project generally operates on large (see below) data files that are available publically, list the names of these files and where to get them.
-- A ReadMe file that tells exactly 
-    - what is each file, 
-    - how to compile (if relevant) and test-run the project on sample inputs to get the sample output, 
-    - how to really run the project on large files, if relevant, 
-    - what are the parameters, 
-    - what are the system requirements (e.g. are you using a particular version of MatLab/Python/R/Ruby/Java/C++/Cobol? Do you run on a particularly powerful machine/cloud instance? Which standard or add-on libraries would you need to have been
-previously installed?)
+To replicate this project, download the raw expression and clinical data sets from the Chinese Glioma Genome Atlas. Load this into the same directory as the downloaded repository. First, run the data_processing script to create test and train data and labels. Save those data in the directory as well. The remaining code can be run in any order.
+
+The code can be run on any RNA-seq expression count data as long as each sample is given a pre-determined label, and the format follows that of the original data.
+
+Requirements: Python with the following packages:
+- numpy
+- sklearn
+- seaborn
+- matplotlib
+- scipy
+- pandas
+- pygmnormalize (git+https://github.com/ficusss/PyGMNormalize.git)
+- skfuzzy (-U scikit-fuzzy)
+- umap (only for the umap code)
+- collections (only for supervised)
+- torch (only for supervised)
+- mord (only for supervised)
+
+All of the above can be installed using the `pip` command. 
